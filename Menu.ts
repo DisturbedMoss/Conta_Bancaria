@@ -1,0 +1,96 @@
+import leia = require("readline-sync")
+import { colors } from "./src/util/Colors";
+
+export function main() {
+    let opcao: number;
+    let continuar: boolean = true;
+
+    while (continuar) {
+        
+        console.log(colors.bg.black, colors.fg.yellow, "*****************************************************");
+        console.log("                                                     ");
+        console.log("                BANCO DO BRAZIL COM Z                ");
+        console.log("                                                     ");
+        console.log("*****************************************************");
+        console.log("                                                     ");
+        console.log("            1 - Criar Conta                          ");
+        console.log("            2 - Listar todas as Contas               ");
+        console.log("            3 - Buscar Conta por Numero              ");
+        console.log("            4 - Atualizar Dados da Conta             ");
+        console.log("            5 - Apagar Conta                         ");
+        console.log("            6 - Sacar                                ");
+        console.log("            7 - Depositar                            ");
+        console.log("            8 - Transferir valores entre Contas      ");
+        console.log("            9 - Sair                                 ");
+        console.log("                                                     ");
+        console.log("*****************************************************");
+        console.log("                                                     ", colors.reset);
+
+        console.log("Entre com a opção desejada: ")
+        opcao = leia.questionInt();
+
+         if(opcao == 9){
+             console.log(colors.fg.greenstrong,"\nBanco do Brazil com Z - O seu Futuro começa aqui!")
+             sobre();
+             console.log(colors.reset, "")
+             continuar = false
+             //process.exit(0);
+         }
+
+        switch (opcao) {
+            case 1:
+                console.log(colors.fg.whitestrong, "1 - Criar Conta", colors.reset)
+                keyPress();
+                break;
+            case 2:
+                console.log(colors.fg.whitestrong, "2 - Listar todas as Contas", colors.reset)
+                keyPress();
+                break;
+            case 3:
+                console.log(colors.fg.whitestrong, "3 - Buscar Conta por Numero", colors.reset)
+                keyPress();
+                break;
+            case 4:
+                console.log(colors.fg.whitestrong, "4 - Atualizar Dados da Conta", colors.reset)
+                keyPress();
+                break;
+            case 5:
+                console.log(colors.fg.whitestrong, "5 - Apagar Conta", colors.reset)
+                keyPress();
+                break;
+            case 6:
+                console.log(colors.fg.whitestrong, "6 - Sacar", colors.reset)
+                keyPress();
+                break;
+            case 7:
+                console.log(colors.fg.whitestrong, "7 - Depositar", colors.reset)
+                keyPress();
+                break;
+            case 8:
+                console.log(colors.fg.whitestrong, "8 - Transferir valores entre Contas", colors.reset)
+                keyPress();
+                break;
+            default:
+                console.log("Inválido", colors.reset)
+                
+                break;
+        }
+        
+    }
+}
+
+export function sobre(): void {
+    console.log("\n*****************************************************");
+    console.log("Projeto Desenvolvido por: Vitor Hugo");
+    console.log("Vitor Hugo - dasilvavitorhugo713@gmail.com");
+    console.log("https://github.com/DisturbedMoss");
+    console.log("*****************************************************");
+}
+
+function keyPress(): void{
+    console.log(colors.reset, "")
+    console.log("\nPressione enter para continuar...\n")
+    leia.prompt();
+}
+
+main();
