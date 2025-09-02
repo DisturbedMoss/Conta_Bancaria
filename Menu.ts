@@ -8,14 +8,7 @@ export function main() {
     let opcao: number;
 
     //Testes
-    const conta: Conta = new Conta(1, 123, 1, "Adriana", 10000);//Método Constructor
-    conta.visualizar();
-    conta.sacar(10500);
-    conta.visualizar();
-    conta.depositar(5000);
-    conta.visualizar();
-
-    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Mariana", 15000, 1000);
+    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Mariana", 15000, 1000);//Método Constructor
     contacorrente.visualizar();
     contacorrente.sacar(2000);
     contacorrente.visualizar();
