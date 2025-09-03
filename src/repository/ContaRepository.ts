@@ -1,7 +1,8 @@
 import { Conta } from "../model/Conta";
 
 export interface ContaRepository{
-    //CRUD da Conta
+    //CRUD da Conta, Métodos de interação, SEMPRE TERÁ
+    //atualizar(pessoa: Pessoa): void;
     procurarPorNumero(numero: number): void;
     listarTodas(): void;
     cadastrar(conta: Conta): void;
