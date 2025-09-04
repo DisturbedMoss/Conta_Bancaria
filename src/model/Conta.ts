@@ -41,14 +41,14 @@ export abstract class Conta{
         return this._titular;
     }
     public set titular(titular: string){
-        this._titular;
+        this._titular = titular;
     }
 
     public get saldo(){
         return this._saldo;
     }
     public set saldo(saldo: number){
-        this._saldo;
+        this._saldo = saldo;
     }
 
     //3 Métodos, sacar, depositar e visualizar
@@ -57,6 +57,7 @@ export abstract class Conta{
             console.log("\nSaldo Insuficiente!");
             return false;
         }
+        
         this._saldo = this._saldo - valor;
         return true;
     }

@@ -8,7 +8,7 @@ export function main() {
     let contas: ContaController = new ContaController();//instância da Classe ContaController
 
     //Variaveis Auxiliares
-    let opcao: number, numero: number, agencia: number, tipo: number, saldo: number, limite: number, aniversario: number, titular: string;
+    let opcao: number, numero: number, agencia: number, tipo: number, saldo: number, limite: number, aniversario: number, titular: string, valor: number, numeroDestino: number;
     const tiposConta: string[] = ['Conta Corrente', 'Conta Poupanca'];
 
     //Testes
@@ -161,14 +161,44 @@ export function main() {
                 break;
             case 6:
                 console.log(colors.fg.whitestrong, "6 - Sacar", colors.reset)
+
+                console.log("Digite o número da Conta: ");
+                numero = leia.questionInt("");
+
+                console.log("Digite o valor do Saque (R$): ");
+                valor = leia.questionFloat("");
+
+                contas.sacar(numero, valor);
+
                 keyPress();
                 break;
             case 7:
                 console.log(colors.fg.whitestrong, "7 - Depositar", colors.reset)
+
+                console.log("Digite o número da Conta: ");
+                numero = leia.questionInt("");
+
+                console.log("Digite o valor do Depósito (R$): ");
+                valor = leia.questionFloat("");
+
+                contas.depositar(numero, valor);
+
                 keyPress();
                 break;
             case 8:
                 console.log(colors.fg.whitestrong, "8 - Transferir valores entre Contas", colors.reset)
+
+                console.log("Digite o número da Conta de Origem: ");
+                numero = leia.questionInt("");
+
+                console.log("Digite o número da Conta de Destino: ");
+                numeroDestino = leia.questionInt("");
+
+                console.log("Digite o valor da Transferência (R$): ");
+                valor = leia.questionFloat("");
+
+                contas.transferir(numero, numeroDestino, valor);
+
                 keyPress();
                 break;
             default:
