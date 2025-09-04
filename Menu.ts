@@ -111,10 +111,52 @@ export function main() {
                 break;
             case 4:
                 console.log(colors.fg.whitestrong, "4 - Atualizar Dados da Conta", colors.reset)
+                
+                console.log("Digite o número da Conta: ");
+                numero = leia.questionInt("");
+
+                let conta = contas.buscarNoArray(numero);
+
+                if(conta != null){
+                    console.log("Digite o Número da agência: ")
+                    agencia = leia.questionInt("");
+
+                    console.log("Digite o Nome do Titular da conta: ");
+                    titular = leia.question("");
+
+                    tipo = conta.tipo;
+
+                    console.log("Digite o Saldo da conta (R$): ");
+                    saldo = leia.questionFloat("");
+
+                    switch(tipo){
+                        case 1:
+                            console.log("Digite o Limite da Conta (R$): ");
+                            limite = leia.questionFloat("");
+                            contas.atualizar(
+                                new ContaCorrente(numero, agencia, tipo, titular, saldo, limite)
+                            );
+                            break;
+                        case 2:
+                            console.log("Digite o dia do Aniversário da Conta Poupança: ");
+                            aniversario = leia.questionInt("");
+                            contas.atualizar(
+                                new ContaPoupanca(numero, agencia, tipo, titular, saldo, aniversario)
+                            );
+                            break;
+                    }
+                }else{
+                    console.log(colors.fg.red, `\nA Conta número: ${numero} não foi encontrada!`, colors.reset);
+                }
                 keyPress();
                 break;
             case 5:
                 console.log(colors.fg.whitestrong, "5 - Apagar Conta", colors.reset)
+
+                console.log("Digite o número da Conta: ");
+                numero = leia.questionInt("");
+                contas.deletar(numero);
+                
                 keyPress();
                 break;
             case 6:
