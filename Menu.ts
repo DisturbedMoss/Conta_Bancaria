@@ -37,14 +37,14 @@ export function main() {
         console.log("                                                     ");
         console.log("*****************************************************");
         console.log("                                                     ");
-        console.log("            1 - Criar Conta                          ");
-        console.log("            2 - Listar todas as Contas               ");
-        console.log("            3 - Buscar Conta por Numero              ");
-        console.log("            4 - Atualizar Dados da Conta             ");
-        console.log("            5 - Apagar Conta                         ");
-        console.log("            6 - Sacar                                ");
-        console.log("            7 - Depositar                            ");
-        console.log("            8 - Transferir valores entre Contas      ");
+        console.log("            1 - Criar Conta                          ");// Menu -> ContaController -> Conta -> Cadastrar // Usuário pede no Menu -> ContaController vê o que fazer -> Conta cadastra
+        console.log("            2 - Listar todas as Contas               ");// Menu -> ContaController -> Conta -> Visualizar // Usuário pede no Menu -> ContaController vê o que fazer -> Conta exibe Visualizar
+        console.log("            3 - Buscar Conta por Numero              ");// Menu -> ContaController -> BuscarPorNumero -> BuscarNoArray  -> BuscarPorNumero -> Visualizar
+        console.log("            4 - Atualizar Dados da Conta             ");// Menu -> ContaController -> Atualizar -> BuscarNoArray -> Atualizar
+        console.log("            5 - Apagar Conta                         ");// Menu -> ContaController -> Deletar -> BuscarNoArray -> Deletar
+        console.log("            6 - Sacar                                ");// Menu -> ContaController -> Sacar -> BuscarNoArray -> Sacar (polimorfismo)
+        console.log("            7 - Depositar                            ");// Menu -> ContaController -> Depositar -> BuscarNoArray -> Depositar (polimorfismo)
+        console.log("            8 - Transferir valores entre Contas      ");// Menu -> ContaController -> Transferir -> BuscarNoArray -> Transferir
         console.log("            9 - Sair                                 ");
         console.log("                                                     ");
         console.log("*****************************************************");
@@ -71,7 +71,7 @@ export function main() {
                 titular = leia.question("");
 
                 console.log("Digite o tipo da Conta: ");
-                tipo = leia.keyInSelect(tiposConta, "", {cancel: false}) + 1;
+                tipo = leia.keyInSelect(tiposConta, "", {cancel: false}) + 1;//Cria um menuzinho com 2 opções const tiposConta(linha 12) e armazena na variável tipo 1 ou 2
 
                 console.log("Digite o Saldo da conta (R$): ");
                 saldo = leia.questionFloat("");
@@ -81,7 +81,7 @@ export function main() {
                         console.log("Digite o Limite da Conta (R$): ");
                         limite = leia.questionFloat("");
                         contas.cadastrar(
-                            new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo, limite)
+                            new ContaCorrente(contas.gerarNumero(), agencia, tipo, titular, saldo, limite)//todas as variáveis sendo usadas para criar a conta (linha 14)
                         );
                         break;
                     case 2:

@@ -2,7 +2,10 @@ import { Conta } from "../model/Conta";
 import { ContaRepository } from "../repository/ContaRepository";
 import { colors } from "../util/Colors";
 
+//É quem cumpre as ações requisitadas pelo usuário no Menu
+
 export class ContaController implements ContaRepository{
+    //Atributos(Não são variáveis)
     private _listaContas: Array<Conta> = new Array<Conta>();
     numero: number = 0;
 

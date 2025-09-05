@@ -1,5 +1,7 @@
 import { Conta } from "./Conta"
 
+//Conta Poupança herda da Conta. existe para especializar a Conta
+
 export class ContaPoupanca extends Conta{
     private _aniversario: number;
 

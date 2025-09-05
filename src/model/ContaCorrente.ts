@@ -1,5 +1,7 @@
 import { Conta } from "./Conta"
 
+//Conta Corrente herda da Conta. existe para especializar a Conta
+
 export class ContaCorrente extends Conta{
     private _limite: number;
 
